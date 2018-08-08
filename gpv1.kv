@@ -1,0 +1,516 @@
+# File name: test.kv
+<VKeyboard>:
+	height: 500
+	layout : 'numeric'
+	layout_path : '/home/pi/gpmb/'
+
+
+<SaveScreen>:
+	name:'scrsave'
+	img:img.__self__
+	FloatLayout:
+		Button:
+			text: ""
+			on_press:root.backbtn()
+		Image:
+			id:img
+			source:'/home/pi/gpmb/img/0.jpg'
+			size: root.size
+			nocache: True
+
+
+<KButton@Button>:
+	#font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+	#color: .8,.9,0,1
+	#font_size: 40
+	size_hint:.176,.1
+<PWDScreen>:
+	pt1:_pt1.__self__
+	lbe:_lbe.__self__
+
+	name:'pwdscr'
+
+	FloatLayout:
+		Image:
+			source:'/home/pi/gpmb/css/btm.png'
+			nocache: True
+
+		Label:
+			pos_hint:{'x':0,'y':.43}
+			text: '请输入密码'
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+		Label:
+			id:_lbe
+			pos_hint:{'x':0,'y':.36}
+			text: ''
+			color:1,0,0,1
+			font_size: 24
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+		Image:
+			#text: 'line'
+			pos_hint:{'x':.1,'y':.33}
+			size_hint:.8,1
+			source:'/home/pi/gpmb/css/4.png'
+			nocache: True
+		Image:
+			#text: 'number background'
+			pos_hint:{'x':.05,'y':.24}
+			size_hint:.9,1
+			source:'/home/pi/gpmb/css/7.png'
+			nocache: True
+		Label:
+			id:_pt1
+			text:''
+			halign:'center'
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0,'y':.24}
+			size_hint:1,1
+
+		KButton:
+			on_press:root.press_pwd("1")
+			pos_hint:{'x':0.12,'y':0.54}
+			background_normal : '/home/pi/gpmb/css/15.png'
+		KButton:
+			on_press:root.press_pwd("2")
+			pos_hint:{'x':0.4,'y':0.54}
+			background_normal : '/home/pi/gpmb/css/16.png'
+		KButton:
+			on_press:root.press_pwd("3")
+			pos_hint:{'x':0.68,'y':0.54}
+			background_normal : '/home/pi/gpmb/css/17.png'
+		KButton:
+			on_press:root.press_pwd("4")
+			pos_hint:{'x':0.12,'y':0.40}
+			background_normal : '/home/pi/gpmb/css/18.png'
+		KButton:
+			on_press:root.press_pwd("5")
+			pos_hint:{'x':0.4,'y':0.40}
+			background_normal : '/home/pi/gpmb/css/19.png'
+		KButton:
+			on_press:root.press_pwd("6")
+			pos_hint:{'x':0.68,'y':0.40}
+			background_normal : '/home/pi/gpmb/css/20.png'
+		KButton:
+			on_press:root.press_pwd("7")
+			pos_hint:{'x':0.12,'y':0.26}
+			background_normal : '/home/pi/gpmb/css/21.png'
+		KButton:
+			on_press:root.press_pwd("8")
+			pos_hint:{'x':0.4,'y':0.26}
+			size_hint:.176,.1
+			background_normal : '/home/pi/gpmb/css/22.png'
+		KButton:
+			on_press:root.press_pwd("9")
+			pos_hint:{'x':0.68,'y':0.26}
+			background_normal : '/home/pi/gpmb/css/23.png'
+		#KButton:
+			#on_press:root.press_pwd("0")
+			#pos_hint:{'x':0.4,'y':0.12}
+			#background_normal : '/home/pi/gpmb/css/23.png'
+
+		Button:
+			#text: '返回'
+			pos_hint:{'x':0.1,'y':0.03}
+			size_hint:.3,.1
+			on_press:root.press_back()
+			background_normal : '/home/pi/gpmb/css/25.png'
+			background_down : '/home/pi/gpmb/css/25-1.png'
+
+		Button:
+			#text: '确认'
+			pos_hint:{'x':0.55,'y':0.03}
+			size_hint:.3,.1
+			on_press:root.press_submit()
+			background_normal : '/home/pi/gpmb/css/24.png'
+			background_down : '/home/pi/gpmb/css/24-1.png'
+
+		Button:
+			#text: '关机'
+			pos_hint:{'x':0.0,'y':0.94}
+			size_hint:.1,.06
+			background_normal : '/home/pi/gpmb/css/poweroff.png'
+			on_press:root.turn_off()
+		Button:
+			#text: '重启'
+			pos_hint:{'x':0.9,'y':0.94}
+			size_hint:.1,.06
+			background_normal : '/home/pi/gpmb/css/restart.png'
+			on_press:root.restart()
+
+
+<amButton@Button>:
+	size_hint:.1408,.08
+<SettingsScreen>:
+	time1:_time1.__self__
+	time3:_time3.__self__
+	time4:_time4.__self__
+	time6:_time6.__self__
+	time7:_time7.__self__
+	time2:_time2.__self__
+	time5:_time5.__self__
+	btn_jb:_btn_jb.__self__
+	ct:_ct.__self__
+
+	name:'settings'
+	FloatLayout:
+		Image:
+			source:'/home/pi/gpmb/css/btm.png'
+			nocache: True
+		Image:
+			#text: 'number background'
+			pos_hint:{'x':.05,'y':.12}
+			size_hint:.9,1
+			source:'/home/pi/gpmb/css/7.png'
+			nocache: True
+		Image:
+			#text: 'number background'
+			pos_hint:{'x':.05,'y':-.31}
+			size_hint:.9,1
+			source:'/home/pi/gpmb/css/7.png'
+			nocache: True
+		Label:
+			id:_ct
+			text_size:100,16
+			halign:'left'
+			font_size: 11
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':-0.39,'y':.495}
+
+		Button:
+			id:tg_btn
+			on_press:root.press_save()
+			size_hint:.74,.09
+			pos_hint:{'x':0.13,'y':.88}
+			background_normal : '/home/pi/gpmb/css/26.png'
+			background_down : '/home/pi/gpmb/css/26-1.png'
+
+		Image:
+			#text: '延迟进水'
+			pos_hint:{'x':-0.33,'y':.30}
+			source:'/home/pi/gpmb/css/32.png'
+			nocache: True
+		Image:
+			#text: '断水延迟'
+			pos_hint:{'x':-0.03,'y':.30}
+			source:'/home/pi/gpmb/css/33.png'
+			nocache: True
+		ToggleButton:
+			id:_btn_jb
+			#text: '搅拌'
+			pos_hint:{'x':0.65,'y':.79}
+			size_hint:.21,.07
+			on_press:root.test_jb()
+			background_normal : '/home/pi/gpmb/css/35.png'
+			background_down : '/home/pi/gpmb/css/35-1.png'
+		#Image:
+			#text: '搅拌传送'
+			#pos_hint:{'x':0.25,'y':.30}
+			#source:'/home/pi/gpmb/css/34.png'
+			#nocache: True
+
+		amButton:
+			#text:'+'
+			pos_hint:{'x':0.12,'y':.69}
+			on_press:root.press_am("time1",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+		amButton:
+			#text:'+'
+			pos_hint:{'x':0.4,'y':.69}
+			on_press:root.press_am("time3",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+		amButton:
+			#text:'+'
+			pos_hint:{'x':0.68,'y':.69}
+			on_press:root.press_am("time4",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+
+		Label:
+			id:_time1
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.12,'y':.58}
+			size_hint:.1408,.08
+		Label:
+			id:_time3
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.4,'y':.58}
+			size_hint:.1408,.08
+		Label:
+			id:_time4
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.68,'y':.58}
+			size_hint:.1408,.08
+
+		amButton:
+			#text:'-'
+			pos_hint:{'x':0.12,'y':.47}
+			on_press:root.press_am("time1",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+		amButton:
+			#text:'-'
+			pos_hint:{'x':0.4,'y':.47}
+			on_press:root.press_am("time3",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+		amButton:
+			#text:'-'
+			pos_hint:{'x':0.68,'y':.47}
+			on_press:root.press_am("time4",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+
+		Label:
+			text: '面条长度'
+			font_size: 30
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':-0.35,'y':-.13}
+		Label:
+			text: '时间'
+			font_size: 30
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':-.12,'y':-.13}
+		Label:
+			text: '传送1'
+			font_size: 30
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.13,'y':-.13}
+		Label:
+			text: '传送2'
+			font_size: 30
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.38,'y':-.13}
+
+		amButton:
+			#text:'+'
+			pos_hint:{'x':0.04,'y':.26}
+			on_press:root.press_am("time2",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+		amButton:
+			#text:'+'
+			pos_hint:{'x':0.30,'y':.26}
+			on_press:root.press_am("time5",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+		amButton:
+			#text:'+'
+			pos_hint:{'x':0.56,'y':.26}
+			on_press:root.press_am("time6",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+		amButton:
+			#text:'+'
+			pos_hint:{'x':0.82,'y':.26}
+			on_press:root.press_am("time7",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+
+		Label:
+			id:_time2
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.08,'y':.15}
+			size_hint:.1408,.08
+		Label:
+			id:_time5
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.32,'y':.15}
+			size_hint:.1408,.08
+		Label:
+			id:_time6
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.54,'y':.15}
+			size_hint:.1408,.08
+		Label:
+			id:_time7
+			font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.78,'y':.15}
+			size_hint:.1408,.08
+
+		amButton:
+			#text:'-'
+			pos_hint:{'x':0.04,'y':.04}
+			on_press:root.press_am("time2",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+		amButton:
+			#text:'-'
+			pos_hint:{'x':0.3,'y':.04}
+			on_press:root.press_am("time5",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+		amButton:
+			#text:'-'
+			pos_hint:{'x':0.56,'y':.04}
+			on_press:root.press_am("time6",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+		amButton:
+			#text:'-'
+			pos_hint:{'x':0.82,'y':.04}
+			on_press:root.press_am("time7",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+
+
+<MyscreenApp>:
+	lb1:_lb_1.__self__
+	lb2:_lb_2.__self__
+	lb3:_lb_3.__self__
+	txt3:_txt3.__self__
+	setbtn:set_btn.__self__
+	tgbtn:tg_btn.__self__
+	lbtime2:_lbt2.__self__
+	lbtime5:_lbt5.__self__
+	btnb1:_btn_b1.__self__
+	btnb2:_btn_b2.__self__
+	btnb3:_btn_b3.__self__
+
+	name:'menu'
+	FloatLayout:
+		Image:
+			source:'/home/pi/gpmb/css/btm.png'
+			nocache: True
+
+		Image:
+			id:_lb_1
+			#text: '状态'
+			pos_hint:{'x':-0.33,'y':.42}
+			source:'/home/pi/gpmb/css/1-1.png'
+			nocache: True
+
+		Image:
+			id:_lb_2
+			#text: '可运行'
+			pos_hint:{'x':0,'y':.42}
+			source:'/home/pi/gpmb/css/2-1.png'
+			nocache: True
+
+		Image:
+			id:_lb_3
+			#text: '控制杆'
+			pos_hint:{'x':0.33,'y':.42}
+			source:'/home/pi/gpmb/css/3-1.png'
+			nocache: True
+
+		Image:
+			#text: 'line'
+			pos_hint:{'x':.1,'y':.33}
+			size_hint:.8,1
+			source:'/home/pi/gpmb/css/4.png'
+			nocache: True
+		Image:
+			#text: 'number background'
+			pos_hint:{'x':.05,'y':.1}
+			size_hint:.9,1
+			source:'/home/pi/gpmb/css/7.png'
+			nocache: True
+
+		Label:
+			text:'面条长度'
+			font_size: 28
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':-.3,'y':.28}
+		Label:
+			text:'时间'
+			font_size: 28
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0,'y':.28}
+		Label:
+			text:'份数'
+			font_size: 28
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':0.29,'y':.28}
+
+		amButton:
+			id:_txt3_ba
+			#text:'+'
+			pos_hint:{'x':0.72,'y':.67}
+			on_press:root.press_am("txt3",1)
+			background_normal: '/home/pi/gpmb/css/5.png'
+
+		Label:
+			id:_lbt2
+			text:'4'
+			font_size: 32
+			size_hint:.176,.1
+			pos_hint:{'x':0.1,'y':.55}
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+		Label:
+			id:_lbt5
+			text:'5'
+			font_size: 32
+			size_hint:.176,.1
+			pos_hint:{'x':0.4,'y':.55}
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+		Label:
+			id:_txt3
+			text: '0'
+			font_size: 32
+			#padding:40,5,5,0
+			size_hint:.176,.1
+			pos_hint:{'x':0.7,'y':.55}
+			#on_focus:root.on_focus()
+			#on_text:root.on_text2(self.text)
+
+		amButton:
+			id:_txt3_bm
+			#text:'-'
+			pos_hint:{'x':0.72,'y':.45}
+			on_press:root.press_am("txt3",-1)
+			background_normal: '/home/pi/gpmb/css/6.png'
+
+		ToggleButton:
+			id:tg_btn
+			#text: '开始运行'
+			size_hint:.74,.12
+			pos_hint:{'x':0.13,'y':.3}
+			#font_size: 40
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			on_press:root.press_tgb()
+			background_normal : '/home/pi/gpmb/css/off.png'
+			background_down : '/home/pi/gpmb/css/on.png'
+			background_disabled_normal : '/home/pi/gpmb/css/off-1.png'
+			background_disabled_down : '/home/pi/gpmb/css/on-1.png'
+
+		ToggleButton:
+			id:_btn_b1
+			#text:'漏斗'
+			pos_hint:{'x':0.025,'y':0.16}
+			size_hint:.3,.1
+			on_press:root.press_btn_b1(_btn_b1)
+			background_normal : '/home/pi/gpmb/css/10.png'
+			background_down : '/home/pi/gpmb/css/10-1.png'
+			background_disabled_normal : '/home/pi/gpmb/css/10-1.png'
+			background_disabled_down : '/home/pi/gpmb/css/10-1.png'
+
+		ToggleButton:
+			id:_btn_b2
+			#text:'水泵'
+			pos_hint:{'x':0.35,'y':0.16}
+			size_hint:.3,.1
+			on_press:root.press_btn_b2(_btn_b2)
+			background_normal : '/home/pi/gpmb/css/11.png'
+			background_down : '/home/pi/gpmb/css/11-1.png'
+			background_disabled_normal : '/home/pi/gpmb/css/11-1.png'
+			background_disabled_down : '/home/pi/gpmb/css/11-1.png'
+
+		Button:
+			id:_btn_b3
+			#text:'滚筒'
+			pos_hint:{'x':0.675,'y':0.16}
+			size_hint:.3,.1
+			on_press:root.press_btn_b3(_btn_b3)
+			on_release:root.release_btn_b3(_btn_b3)
+			background_normal : '/home/pi/gpmb/css/12.png'
+			background_down : '/home/pi/gpmb/css/12-1.png'
+			background_disabled_normal : '/home/pi/gpmb/css/12-1.png'
+			background_disabled_down : '/home/pi/gpmb/css/12-1.png'
+
+		Button:
+			id:set_btn
+			#text: '设置'
+			pos_hint:{'x':0.73,'y':0.03}
+			size_hint:.176,.1
+			on_press:root.press_set()
+			background_normal : '/home/pi/gpmb/css/13.png'
+			background_down : '/home/pi/gpmb/css/13-1.png'
+			background_disabled_normal : '/home/pi/gpmb/css/13-1.png'
+			background_disabled_down : '/home/pi/gpmb/css/13-1.png'
