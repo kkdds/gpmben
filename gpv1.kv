@@ -186,29 +186,24 @@
 			background_normal : '/home/pi/gpmb/css/26.png'
 			background_down : '/home/pi/gpmb/css/26-1.png'
 
-		Image:
-			#text: '延迟进水'
-			pos_hint:{'x':-0.33,'y':.30}
-			source:'/home/pi/gpmb/css/32.png'
-			nocache: True
-		Image:
-			#text: '断水延迟'
-			pos_hint:{'x':-0.03,'y':.30}
-			source:'/home/pi/gpmb/css/33.png'
-			nocache: True
+		Label:
+			text: '延迟进水\n in delay'
+			font_size: 20
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':-0.30,'y':.31}
+		Label:
+			text: '断水延迟\n off delay'
+			font_size: 20
+			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
+			pos_hint:{'x':-0.03,'y':.31}
 		ToggleButton:
 			id:_btn_jb
 			#text: '搅拌'
 			pos_hint:{'x':0.65,'y':.79}
-			size_hint:.21,.07
+			size_hint:.20,.07
 			on_press:root.test_jb()
 			background_normal : '/home/pi/gpmb/css/35.png'
 			background_down : '/home/pi/gpmb/css/35-1.png'
-		#Image:
-			#text: '搅拌传送'
-			#pos_hint:{'x':0.25,'y':.30}
-			#source:'/home/pi/gpmb/css/34.png'
-			#nocache: True
 
 		amButton:
 			#text:'+'
@@ -262,25 +257,25 @@
 			background_normal: '/home/pi/gpmb/css/6.png'
 
 		Label:
-			text: '长度length'
+			text: '长度\nlength'
 			font_size: 30
 			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
-			pos_hint:{'x':-0.35,'y':-.13}
+			pos_hint:{'x':-0.35,'y':-.10}
 		Label:
-			text: '时间time'
+			text: '时间\ntime'
 			font_size: 30
 			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
-			pos_hint:{'x':-.12,'y':-.13}
+			pos_hint:{'x':-.12,'y':-.10}
 		Label:
-			text: '传送1'
+			text: '传送1\ntrans1'
 			font_size: 30
 			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
-			pos_hint:{'x':0.13,'y':-.13}
+			pos_hint:{'x':0.13,'y':-.10}
 		Label:
-			text: '传送2'
+			text: '传送2\ntrans2'
 			font_size: 30
 			font_name:'/usr/share/fonts/truetype/wqy/wqy-microhei.ttc'
-			pos_hint:{'x':0.38,'y':-.13}
+			pos_hint:{'x':0.38,'y':-.10}
 
 		amButton:
 			#text:'+'

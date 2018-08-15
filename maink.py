@@ -178,7 +178,7 @@ class PWDScreen(Screen):
         elif self.pt1.text=='953568':
             global ct
             ct='0'
-            setscr.ct.text='计数:'+ct
+            setscr.ct.text='计数count:'+ct
             kconfig.set("gpmb","ct",ct)
             kconfig.write(open('/home/pi/gpmb/'+"set.ini","w"))
             sm.current='settings'
@@ -425,7 +425,7 @@ class MyscreenApp(Screen):
         if count>0:
             count=count-1
             ct=str(int(ct)+1)
-            setscr.ct.text='计数:'+ct
+            setscr.ct.text='计数count:'+ct
             kconfig.set("gpmb","ct",ct)
             kconfig.write(open('/home/pi/gpmb/'+"set.ini","w"))
         if count==0:
@@ -598,7 +598,7 @@ setscr.time6.text=s6
 setscr.time7.text=s7
 setscr.time2.text=s2
 setscr.time5.text=s5
-setscr.ct.text='计数:'+ct
+setscr.ct.text='计数count:'+ct
 myscr.lbtime2.text=s2
 myscr.lbtime5.text=s5
 
