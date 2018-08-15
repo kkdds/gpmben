@@ -183,7 +183,7 @@ class PWDScreen(Screen):
             kconfig.write(open('/home/pi/gpmb/'+"set.ini","w"))
             sm.current='settings'
         else:
-            self.lbe.text='密码错误'
+            self.lbe.text='密码错误ERROR'
             self.pt1.text=''
 
     def turn_off(self):

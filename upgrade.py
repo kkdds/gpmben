@@ -30,7 +30,7 @@ def sys_update(request):
     hhdd=[('Access-Control-Allow-Origin','*')]
     posted = yield from request.post()
     #print(posted)
-    tbody= '成功'
+    tbody= '成功 finished'
     if posted['tp']=='core':
         try:
             upedfile=posted['cfile']
@@ -47,16 +47,16 @@ def sys_update(request):
                     fz.extract(file,'/home/pi/gpmb/')
                 fz.close()
             except:
-                tbody='解压失败'
+                tbody='解压失败 zip fail'
         except:
-            tbody='失败'
+            tbody='失败 name fail'
     return web.Response(headers=hhdd ,body=tbody.encode('utf-8'),content_type='application/json')
 
 
 @aiohttp_jinja2.template('upgrade.html')
 def upgrade(request):
     #使用aiohttp_jinja2  methed 2
-    return {'html': 'upgrade',"ver":"20161111"}
+    return {'html': 'upgrade',"ver":"20161111en"}
 
 
 @asyncio.coroutine
